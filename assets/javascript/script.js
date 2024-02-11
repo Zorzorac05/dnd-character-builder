@@ -38,5 +38,25 @@ function enemyStats(){
     $("#echa").text("cha: " + cha);
 }
 
-enemyStats();
 fillStats();
+
+function compare() {
+    console.log("hello");
+}
+
+fillStats();
+
+//fuction called when the user clicks the create buttoin on the index page
+$("#create").on("click", function() {
+    //gets the info from the drop down menus and stores the values in the global vars
+
+    //takes the user to the 2nd page
+    location.replace("secondPage.html");
+
+});
+
+//on click event run the function to fill in the enemy info then once the info is filled run a compare
+$("#generate").on("click", function(){
+    enemyStats();
+    compare();
+});
