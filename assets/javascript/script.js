@@ -84,8 +84,7 @@ $("#create").on("click", function() {
     //gets the info from the drop down menus and stores the values in the global vars
 
     //takes the user to the 2nd page
-    location.replace("secondPage.html");
-
+    window.location.href = "secondPage.html"
 });
 
 //on click event run the function to fill in the enemy info then once the info is filled run a compare
