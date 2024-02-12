@@ -99,8 +99,7 @@ $("#create").on("click", function() {
     localStorage.setItem("charClass", getSelectedCharClass());
     localStorage.setItem("charLevel", getSelectedCharLevel());
     //takes the user to the 2nd page
-    location.replace("secondPage.html");
-
+    window.location.href = "secondPage.html"
 });
 
 //on click event run the function to fill in the enemy info then once the info is filled run a compare
