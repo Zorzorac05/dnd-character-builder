@@ -1,8 +1,7 @@
 //fetch("https://youtube.googleapis.com/youtube/v3/playlists?key=AIzaSyCXMsxFGkkJjCZmQmL7b1zKT0XQ-NBiCIE")
 //player stats
-var level = 3;
-var hp = 0;
-var charClass = "warlock";
+
+// ########## Variable Definitions: ##########
 var ac = 0;
 var str = 0;
 var dex = 0;
@@ -21,21 +20,31 @@ var econ = 0;
 var eint = 0;
 var ewis = 0;
 var echa = 0;
+// ########## Application Logic: ##########
 
+fillStats();
+// ########## Function Definitions: ##########
 
 //this function fills the player info
 function fillStats(){
+
+    console.log("fillStats ran")
+
+    var level = localStorage.getItem("charLevel");
+    var charClass = localStorage.getItem("charClass");
+
     if(charClass == "barbarian"){
         hp = (7 * (level - 1)) + (con * level) + 12;
     }else if(charClass == "fighter" || charClass == "paladin"){
         hp = (6 * (level - 1)) + (con * level) + 10;
-    }else if(charClass == "bard" || charClass == "cleric" || charClass == "druid" || charClass == "monk" || charClass == "rouge" || charClass == "sorcerer" || charClass == "warlock"){
+    }else if(charClass == "bard" || charClass == "cleric" || charClass == "druid" || charClass == "monk" || charClass == "rogue" || charClass == "sorcerer" || charClass == "warlock"){
         hp = (5 * (level - 1)) + (con * level) + 8;
     }else if(charClass == "wizard"){
         hp = (4 * (level - 1)) + (con * level) + 6;
     }else {
         hp = 1;
     }
+
     $("#level").text("Level: " + level);
     $("#class").text("Class: " + charClass);
     $("#hp").text("HP: " + hp);
@@ -70,19 +79,25 @@ function enemyStats(){
     $("#echa").text("cha: " + echa);
 }
 
-fillStats();
 
 function compare() {
     console.log("hello");
 
 }
 
-fillStats();
+function getSelectedCharClass(){
+    return $("#char-class").val();
+}
+
+function getSelectedCharLevel(){
+    return $("#char-level").val();
+}
 
 //fuction called when the user clicks the create buttoin on the index page
 $("#create").on("click", function() {
     //gets the info from the drop down menus and stores the values in the global vars
-
+    localStorage.setItem("charClass", getSelectedCharClass());
+    localStorage.setItem("charLevel", getSelectedCharLevel());
     //takes the user to the 2nd page
     location.replace("secondPage.html");
 
