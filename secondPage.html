@@ -8,14 +8,22 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>DnD Character Creator</title>
 </head>
-
-
 <body>
-
+  <nav class="p-14 bg-amber-600 flex items-center md:justify-between">
+    <div>
+      <span class="text-4xl font-semibold">
+        D&D Character Builder
+      </span>
+    </div>
+    <button class="bg-red-800 text-white duration-500 px-6 py-2 mx-4 rounded ">
+      Go back
+    </button>
+  </nav>
   <main>
-    <section class="flex flex-col" id="character-comps">
-  
-      <div class="float-left w-[48%] h-200 bg-red-800 border p-4 mb-6 ml-4">
+    <section class="flex flex-row justify-center" id="character-comps">
+      
+     <div class="flex flex-col">
+      <div class=" w-[90%] h-200 bg-red-800 border p-4 mb-6 ml-4">
         <h1 class="font-bold text-white text-3xl bg-orange-300 rounded-md p-2">
           Your Character
         </h1>
@@ -23,13 +31,14 @@
       <!-- Used the little guy provided by Braeden as a placeholder -->
         <img src="./assets/fighter.png" alt="Character Image" class="mr-4 p-4 w-20 h-20 object-cover">
 
-        <div class="flex float-left object-left-center" id="character-info">
+        <div class="flex  object-left-center" id="character-info">
     
           <div class="ml-4 flex flex-col" id="character-details">
             <h2></h2>
             <p></p>
           </div>
         </div>
+
       
         <!-- Could not figure out how to make this stat box float to the left of the image to save my life -->
         <div class="object-right-center mt-4 p-2 bg-gray-200 rounded-md">
@@ -49,7 +58,7 @@
       </div>
       
   
-      <div class="float-left w-[48%] h-200 bg-red-800 border p-4 mb-6 ml-4">
+      <div class=" w-[90%] h-200 bg-red-800 border p-4 mb-6 ml-4">
         <h1 class="font-bold text-white text-3xl bg-orange-300 rounded-md p-2">
           Random Enemy Generator
         </h1>
@@ -76,10 +85,16 @@
           </div>
         </div>
       </div>
+    </div>
+
+      <div class="flex flex-col items-center w-[500px] h-200px bg-red-800 border p-4 mb-6 ml-4">
+        <h1 class="font-bold w-full text-white text-3xl bg-orange-300 rounded-md p-2 text-center">
+          Results
+        </h1>
+        </div>
   
     </section>
   </main>
-
 
     </main>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
