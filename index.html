@@ -12,48 +12,103 @@
       href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap"
       rel="stylesheet"
     />
-    <title>D&D Character Comparison</title>
+    <title>D&D Character Builder</title>
   </head>
 
   <body class="flex flex-col items-center m-0 bg-gray-200 font-">
-    <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+    <div
+      class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"
+    ></div>
     <header class="bg-red-950 w-full flex items-center justify-around m-0">
       <h1 class="text-gray-50 p-10 text-5xl">D&D Character Comparison</h1>
-      <button class="text-white bg-amber-600 hover:bg-amber-700 focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm p-4 h-4/5 text-center" type="button">
+
+      <!-- Music player -->
+      <iframe
+        width="100"
+        height="50"
+        src="https://www.youtube.com/embed/videoseries?si=pQea6t1Zal0OYHzE&amp;list=PL3XFhex_Ve-wFXYEjRJgp4R2su9WIx2Zq"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        style="border: 2px solid #e74c3c; border-radius: 8px; w-8; h-8;"
+      ></iframe>
+
+      <button
+        class="text-white bg-amber-600 hover:bg-amber-700 focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm p-4 h-4/5 text-center"
+        type="button"
+      >
         Instructions
       </button>
-      <div id="default-modal" tabindex="-1" class="flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 max-h-full">
+      <div
+        id="default-modal"
+        tabindex="-1"
+        class="flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 max-h-full"
+      >
         <div class="relative p-4 w-9/12 max-w-full max-h-full">
-            <!-- Modal content -->
-            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                <!-- Modal header -->
-                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">
-                        Instructions
-                    </h3>
-                    <button id="modal-exit" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal">
-                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                        </svg>
-                        <span class="sr-only">Close modal</span>
-                    </button>
-                </div>
-                <!-- Modal body -->
-                <div class="p-4 md:p-5 space-y-4">
-                    <p class="text-lg leading-relaxed text-gray-400">
-                        Welcome to our D&D character comparison application! This app will give you a quick glance at how your character might stack up against common D&D monsters. Feel free to create different chracters to test out different combinations!
-                    </p>
-                    <p class="text-lg leading-relaxed text-gray-400">
-                        You will be presented with an array of options to create your base character stats. When you finish, press submit, and a monster's stats will be randomly generated so you can compare the two. Enjoy!
-                    </p>
-                </div>
-                <!-- Modal footer -->
-                <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                    <button id="modal-confirm" type="button" class="text-white bg-amber-600 hover:bg-amber-700 focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm p-4 text-center">Sounds Good!</button>
-                </div>
+          <!-- Modal content -->
+          <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div
+              class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
+            >
+              <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">
+                Instructions
+              </h3>
+              <button
+                id="modal-exit"
+                type="button"
+                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                data-modal-hide="default-modal"
+              >
+                <svg
+                  class="w-3 h-3"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 14 14"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                  />
+                </svg>
+                <span class="sr-only">Close modal</span>
+              </button>
             </div>
+            <!-- Modal body -->
+            <div class="p-4 md:p-5 space-y-4">
+              <p class="text-lg leading-relaxed text-gray-400">
+                Welcome to our D&D character comparison application! This app
+                will give you a quick glance at how your character might stack
+                up against common D&D monsters. Feel free to create different
+                chracters to test out different combinations!
+              </p>
+              <p class="text-lg leading-relaxed text-gray-400">
+                You will be presented with an array of options to create your
+                base character stats. When you finish, press submit, and a
+                monster's stats will be randomly generated so you can compare
+                the two. Enjoy!
+              </p>
+            </div>
+            <!-- Modal footer -->
+            <div
+              class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600"
+            >
+              <button
+                id="modal-confirm"
+                type="button"
+                class="text-white bg-amber-600 hover:bg-amber-700 focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm p-4 text-center"
+              >
+                Sounds Good!
+              </button>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
     </header>
 
     <main class="flex flex-col items-center bg-gray-50 h-screen m-0 w-3/4">
@@ -92,14 +147,7 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
               ></g>
-              <g id="SVGRepo_iconCarrier">
-                <!-- Commented out drop-down arrows since they weren't functional, but we can look into incorporating them into the functional drop-down box code! -->
-
-                <!-- <path
-                  d="M5.16108 10.0731C4.45387 9.2649 5.02785 8 6.1018 8H17.898C18.972 8 19.5459 9.2649 18.8388 10.0731L13.3169 16.3838C12.6197 17.1806 11.3801 17.1806 10.6829 16.3838L5.16108 10.0731ZM6.65274 9.5L11.8118 15.396C11.9114 15.5099 12.0885 15.5099 12.1881 15.396L17.3471 9.5H6.65274Z"
-                  fill="#212121"
-                ></path> -->
-              </g>
+              <g id="SVGRepo_iconCarrier"></g>
             </svg>
           </span>
         </button>
@@ -129,14 +177,7 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
               ></g>
-              <g id="SVGRepo_iconCarrier">
-                <!-- Commented out drop-down arrows since they weren't functional, but we can look into incorporating them into the functional drop-down box code! -->
-
-                <!-- <path
-                d="M5.16108 10.0731C4.45387 9.2649 5.02785 8 6.1018 8H17.898C18.972 8 19.5459 9.2649 18.8388 10.0731L13.3169 16.3838C12.6197 17.1806 11.3801 17.1806 10.6829 16.3838L5.16108 10.0731ZM6.65274 9.5L11.8118 15.396C11.9114 15.5099 12.0885 15.5099 12.1881 15.396L17.3471 9.5H6.65274Z"
-                fill="#212121"
-              ></path> -->
-              </g>
+              <g id="SVGRepo_iconCarrier"></g>
             </svg>
           </span>
         </button>
@@ -176,14 +217,7 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
               ></g>
-              <g id="SVGRepo_iconCarrier">
-                <!-- Commented out drop-down arrows since they werem't functional, but we can look into incorporating them into the functional drop-down box code! -->
-
-                <!-- <path
-                  d="M5.16108 10.0731C4.45387 9.2649 5.02785 8 6.1018 8H17.898C18.972 8 19.5459 9.2649 18.8388 10.0731L13.3169 16.3838C12.6197 17.1806 11.3801 17.1806 10.6829 16.3838L5.16108 10.0731ZM6.65274 9.5L11.8118 15.396C11.9114 15.5099 12.0885 15.5099 12.1881 15.396L17.3471 9.5H6.65274Z"
-                  fill="#212121"
-                ></path> -->
-              </g>
+              <g id="SVGRepo_iconCarrier"></g>
             </svg>
           </span>
         </button>
@@ -223,14 +257,7 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
               ></g>
-              <g id="SVGRepo_iconCarrier">
-                <!-- Commented out drop-down arrows since they weren't functional, but we can look into incorporating them into the functional drop-down box code! -->
-
-                <!-- <path
-                d="M5.16108 10.0731C4.45387 9.2649 5.02785 8 6.1018 8H17.898C18.972 8 19.5459 9.2649 18.8388 10.0731L13.3169 16.3838C12.6197 17.1806 11.3801 17.1806 10.6829 16.3838L5.16108 10.0731ZM6.65274 9.5L11.8118 15.396C11.9114 15.5099 12.0885 15.5099 12.1881 15.396L17.3471 9.5H6.65274Z"
-                fill="#212121"
-              ></path> -->
-              </g>
+              <g id="SVGRepo_iconCarrier"></g>
             </svg>
           </span>
         </button>
@@ -270,14 +297,7 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
               ></g>
-              <g id="SVGRepo_iconCarrier">
-                <!-- Commented out drop-down arrows since they weren't functional, but we can look into incorporating them into the functional drop-down box code! -->
-
-                <!-- <path
-                d="M5.16108 10.0731C4.45387 9.2649 5.02785 8 6.1018 8H17.898C18.972 8 19.5459 9.2649 18.8388 10.0731L13.3169 16.3838C12.6197 17.1806 11.3801 17.1806 10.6829 16.3838L5.16108 10.0731ZM6.65274 9.5L11.8118 15.396C11.9114 15.5099 12.0885 15.5099 12.1881 15.396L17.3471 9.5H6.65274Z"
-                fill="#212121"
-              ></path> -->
-              </g>
+              <g id="SVGRepo_iconCarrier"></g>
             </svg>
           </span>
         </button>
@@ -317,14 +337,7 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
               ></g>
-              <g id="SVGRepo_iconCarrier">
-                <!-- Commented out drop-down arrows since they weren't functional, but we can look into incorporating them into the functional drop-down box code! -->
-
-                <!-- <path
-                d="M5.16108 10.0731C4.45387 9.2649 5.02785 8 6.1018 8H17.898C18.972 8 19.5459 9.2649 18.8388 10.0731L13.3169 16.3838C12.6197 17.1806 11.3801 17.1806 10.6829 16.3838L5.16108 10.0731ZM6.65274 9.5L11.8118 15.396C11.9114 15.5099 12.0885 15.5099 12.1881 15.396L17.3471 9.5H6.65274Z"
-                fill="#212121"
-              ></path> -->
-              </g>
+              <g id="SVGRepo_iconCarrier"></g>
             </svg>
           </span>
         </button>
@@ -364,14 +377,7 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
               ></g>
-              <g id="SVGRepo_iconCarrier">
-                <!-- Commented out drop-down arrows since they weren't functional, but we can look into incorporating them into the functional drop-down box code! -->
-
-                <!-- <path
-                d="M5.16108 10.0731C4.45387 9.2649 5.02785 8 6.1018 8H17.898C18.972 8 19.5459 9.2649 18.8388 10.0731L13.3169 16.3838C12.6197 17.1806 11.3801 17.1806 10.6829 16.3838L5.16108 10.0731ZM6.65274 9.5L11.8118 15.396C11.9114 15.5099 12.0885 15.5099 12.1881 15.396L17.3471 9.5H6.65274Z"
-                fill="#212121"
-              ></path> -->
-              </g>
+              <g id="SVGRepo_iconCarrier"></g>
             </svg>
           </span>
         </button>
@@ -411,14 +417,7 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
               ></g>
-              <g id="SVGRepo_iconCarrier">
-                <!-- Commented out drop-down arrows since they weren't functional, but we can look into incorporating them into the functional drop-down box code! -->
-
-                <!-- <path
-                d="M5.16108 10.0731C4.45387 9.2649 5.02785 8 6.1018 8H17.898C18.972 8 19.5459 9.2649 18.8388 10.0731L13.3169 16.3838C12.6197 17.1806 11.3801 17.1806 10.6829 16.3838L5.16108 10.0731ZM6.65274 9.5L11.8118 15.396C11.9114 15.5099 12.0885 15.5099 12.1881 15.396L17.3471 9.5H6.65274Z"
-                fill="#212121"
-              ></path> -->
-              </g>
+              <g id="SVGRepo_iconCarrier"></g>
             </svg>
           </span>
         </button>
