@@ -12,6 +12,11 @@ var int = 0;
 var wis = 0;
 var cha = 0;
 
+var modalToggle = $("header > button");
+var modal = $("#default-modal");
+var modalConfirm = $("#modal-confirm")
+var modalExit = $("#modal-exit")
+
 //enemy stats
 var enemy;
 var cr = 0;
@@ -31,7 +36,10 @@ fillStats();
 //this function fills the player info
 function fillStats(){
 
-    console.log("fillStats ran")
+    var player = localStorage.getItem("player");
+    var hp;
+    var ac;
+    var conMod;
 
     level = localStorage.getItem("charLevel");
     charClass = localStorage.getItem("charClass");
@@ -227,4 +235,17 @@ $("#create").on("click", function() {
 $("#generate").on("click", function(){
     enemyStats();
     compare();
+    
+});
+
+modalConfirm.on('click', function() {
+    modal.addClass('hidden');
+});
+
+modalExit.on('click', function() {
+    modal.addClass('hidden');
+});
+
+modalToggle.on('click', function() {
+    modal.removeClass('hidden');
 });
