@@ -53,7 +53,7 @@ function fillStats(){
         conMod = 2;
     }else if(con > 10){
         conMod = 1;
-    }else if(con >8){
+    }else if(con > 8){
         conMod = 0;
     }else if(con > 6){
         conMod = -1;
@@ -73,7 +73,7 @@ function fillStats(){
         dexMod = 2;
     }else if(dex > 10){
         dexMod = 1;
-    }else if(dex >8){
+    }else if(dex > 8){
         dexMod = 0;
     }else if(dex > 6){
         dexMod = -1;
@@ -81,17 +81,18 @@ function fillStats(){
         dexMod = -2;
     }
 
+    
     if(charClass == "barbarian"){
-        hp = (7 * (level - 1)) + (con * level) + 12;
+        hp = (7 * (level - 1)) + (conMod * level) + 12;
         ac = 10 + dexMod + conMod;
     }else if(charClass == "fighter" || charClass == "paladin"){
-        hp = (6 * (level - 1)) + (con * level) + 10;
+        hp = (6 * (level - 1)) + (conMod * level) + 10;
         ac = 16;
-    }else if(charClass == "bard" || charClass == "cleric" || charClass == "druid" || charClass == "monk" || charClass == "rogue" || charClass == "sorcerer" || charClass == "warlock"){
-        hp = (5 * (level - 1)) + (con * level) + 8;
+    }else if(charClass == "bard" || charClass == "cleric" || charClass == "druid" || charClass == "monk" || charClass == "rouge" || charClass == "sorcerer" || charClass == "warlock"){
+        hp = (5 * (level - 1)) + (conMod * level) + 8;
         ac = 12 + dexMod;
     }else if(charClass == "wizard"){
-        hp = (4 * (level - 1)) + (con * level) + 6;
+        hp = (4 * (level - 1)) + (conMod * level) + 6;
         ac = 10 + dexMod;
     }else {
         hp = 1;
@@ -99,7 +100,8 @@ function fillStats(){
     }
 
     $("#level").text("Level: " + level);
-    $("#class").text("Class: " + charClass.charAt(0).toUpperCase() + charClass.slice(1));
+    //$("#class").text("Class: " + charClass.charAt(0).toUpperCase() + charClass.slice(1));
+    $("#class").text("Class: " + charClass);
     $("#hp").text("HP: " + hp);
     $("#ac").text("AC: " + ac);
     $("#str").text("Str: " + str);
