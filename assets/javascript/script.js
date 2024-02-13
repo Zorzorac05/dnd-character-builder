@@ -41,16 +41,61 @@ function fillStats(){
     wis = localStorage.getItem("charWisdom");
     cha = localStorage.getItem("charCharisma");
 
+    //finds con mod based on con score entered
+    var conMod;
+    if(con > 18){
+        conMod = 5;
+    }else if(con > 16){
+        conMod = 4;
+    }else if(con > 14){
+        conMod = 3;
+    }else if(con > 12){
+        conMod = 2;
+    }else if(con > 10){
+        conMod = 1;
+    }else if(con >8){
+        conMod = 0;
+    }else if(con > 6){
+        conMod = -1;
+    }else{
+        conMod = -2;
+    }
+
+    //finds dex mod based on dex entrered
+    var dexMod;
+    if(dex > 18){
+        dexMod = 5;
+    }else if(dex > 16){
+        dexMod = 4;
+    }else if(dex > 14){
+        dexMod = 3;
+    }else if(dex > 12){
+        dexMod = 2;
+    }else if(dex > 10){
+        dexMod = 1;
+    }else if(dex >8){
+        dexMod = 0;
+    }else if(dex > 6){
+        dexMod = -1;
+    }else{
+        dexMod = -2;
+    }
+
     if(charClass == "barbarian"){
         hp = (7 * (level - 1)) + (con * level) + 12;
+        ac = 10 + dexMod + conMod;
     }else if(charClass == "fighter" || charClass == "paladin"){
         hp = (6 * (level - 1)) + (con * level) + 10;
+        ac = 16;
     }else if(charClass == "bard" || charClass == "cleric" || charClass == "druid" || charClass == "monk" || charClass == "rogue" || charClass == "sorcerer" || charClass == "warlock"){
         hp = (5 * (level - 1)) + (con * level) + 8;
+        ac = 12 + dexMod;
     }else if(charClass == "wizard"){
         hp = (4 * (level - 1)) + (con * level) + 6;
+        ac = 10 + dexMod;
     }else {
         hp = 1;
+        ac = 1;
     }
 
     $("#level").text("Level: " + level);
