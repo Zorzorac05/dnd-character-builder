@@ -16,6 +16,7 @@ var modalToggle = $("header > button");
 var modal = $("#default-modal");
 var modalConfirm = $("#modal-confirm")
 var modalExit = $("#modal-exit")
+var modalOverlay = $(".modal-overlay")
 
 //enemy stats
 var enemy;
@@ -240,12 +241,15 @@ $("#generate").on("click", function(){
 
 modalConfirm.on('click', function() {
     modal.addClass('hidden');
+    modalOverlay.addClass('hidden');
 });
 
 modalExit.on('click', function() {
     modal.addClass('hidden');
+    modalOverlay.addClass('hidden');
 });
 
 modalToggle.on('click', function() {
+    modal.removeClass('hidden');
     modal.removeClass('hidden');
 });
