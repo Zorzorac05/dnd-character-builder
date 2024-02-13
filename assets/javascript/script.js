@@ -2,6 +2,8 @@
 //player stats
 
 // ########## Variable Definitions: ##########
+var level = 0;
+var charClass = "";
 var ac = 0;
 var str = 0;
 var dex = 0;
@@ -30,8 +32,14 @@ function fillStats(){
 
     console.log("fillStats ran")
 
-    var level = localStorage.getItem("charLevel");
-    var charClass = localStorage.getItem("charClass");
+    level = localStorage.getItem("charLevel");
+    charClass = localStorage.getItem("charClass");
+    str = localStorage.getItem("charStrength");
+    dex = localStorage.getItem("charDex");
+    con = localStorage.getItem("charConstitution");
+    int = localStorage.getItem("characterIntell");
+    wis = localStorage.getItem("charWisdom");
+    cha = localStorage.getItem("charCharisma");
 
     if(charClass == "barbarian"){
         hp = (7 * (level - 1)) + (con * level) + 12;
@@ -46,7 +54,7 @@ function fillStats(){
     }
 
     $("#level").text("Level: " + level);
-    $("#class").text("Class: " + charClass);
+    $("#class").text("Class: " + charClass.charAt(0).toUpperCase() + charClass.slice(1));
     $("#hp").text("HP: " + hp);
     $("#ac").text("AC: " + ac);
     $("#str").text("Str: " + str);
@@ -93,11 +101,42 @@ function getSelectedCharLevel(){
     return $("#char-level").val();
 }
 
+function getSelectedCharStrength(){
+    return $("#char-strength").val();
+}
+
+function getSelectedCharDex(){
+    return $("#char-dex").val();
+}
+
+function getSelectedCharConstitution(){
+    return $("#char-constitution").val();
+}
+
+function getSelectedCharIntell(){
+    return $("#character-intell").val();
+}
+
+function getSelectedCharWisdom(){
+    return $("#char-wisdom").val();
+}
+
+function getSelectedCharCharisma(){
+    return $("#char-charisma").val();
+}
+
 //fuction called when the user clicks the create buttoin on the index page
 $("#create").on("click", function() {
     //gets the info from the drop down menus and stores the values in the global vars
     localStorage.setItem("charClass", getSelectedCharClass());
     localStorage.setItem("charLevel", getSelectedCharLevel());
+    localStorage.setItem("charStrength", getSelectedCharStrength());
+    localStorage.setItem("charDex", getSelectedCharDex());
+    localStorage.setItem("charConstitution", getSelectedCharConstitution());
+    localStorage.setItem("characterIntell", getSelectedCharIntell());
+    localStorage.setItem("charWisdom", getSelectedCharWisdom());
+    localStorage.setItem("charCharisma", getSelectedCharCharisma());
+
     //takes the user to the 2nd page
     window.location.href = "secondPage.html"
 });
