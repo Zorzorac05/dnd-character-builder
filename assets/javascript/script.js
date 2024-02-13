@@ -16,6 +16,7 @@ var modalToggle = $("header > button");
 var modal = $("#default-modal");
 var modalConfirm = $("#modal-confirm")
 var modalExit = $("#modal-exit")
+var modalOverlay = $("#modal-overlay")
 
 //enemy stats
 var enemy;
