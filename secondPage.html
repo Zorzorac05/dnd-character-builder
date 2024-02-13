@@ -14,14 +14,19 @@
     />
     <title>DnD Character Creator</title>
 </head>
-<body>
-  <nav class="p-14 bg-amber-600 flex items-center md:justify-between">
+<body class="bg-gray-200">
+  <nav class="p-14 bg-amber-600 flex items-center md:justify-between bg-red-950">
     <div>
-      <span class="text-4xl font-semibold">
-        D&D Character Builder
+      <span class="text-4xl font-semibold text-white">
+        D&D Character Comparison
       </span>
     </div>
-    <button id="goBack" class="bg-red-800 text-white duration-500 px-6 py-2 mx-4 rounded ">
+
+      <!-- Music player -->
+      <iframe 
+      width="100" height="50" src="https://www.youtube.com/embed/videoseries?si=wl7kw5qdWpW7nUzA&list=PL3XFhex_Ve-xSmCSyds7SxPHnMgfNes7y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border: 2px solid #e74c3c; border-radius: 8px; w-8; h-8;"></iframe>
+
+    <button class="bg-amber-600 text-white duration-500 px-6 py-2 mx-4 rounded ">
       Go back
     </button>
   </nav>
@@ -29,27 +34,22 @@
     <section class="flex flex-row justify-center" id="character-comps">
       
      <div class="flex flex-col">
-      <div class=" w-[90%] h-200 bg-red-800 border p-4 mb-6 ml-4">
-        <h1 class="font-bold text-white text-3xl bg-orange-300 rounded-md p-2">
+      <div class=" w-[90%] h-200 bg-orange-100 border p-4 mb-6 ml-4 mt-4">
+        <h1 class="font-bold text-white text-3xl bg-red-950 rounded-md p-2">
           Your Character
         </h1>
       
-      <!-- Used the little guy provided by Braeden as a placeholder -->
+      <!-- Used the little guy provided by Braedan as a placeholder -->
         <img src="./assets/fighter.png" alt="Character Image" class="mr-4 p-4 w-20 h-20 object-cover">
 
         <div class="flex  object-left-center" id="character-info">
     
           <div class="ml-4 flex flex-col" id="character-details">
-            <h2></h2>
-            <p></p>
           </div>
         </div>
 
-      
-        <!-- Could not figure out how to make this stat box float to the left of the image to save my life -->
-        <div class="object-right-center mt-4 p-2 bg-gray-200 rounded-md">
-          <h2 class="text-xl font-bold text-gray-800">Stats</h2>
-          <p>Stats that you chose for your character appear here.</p>
+        <div class="object-right-center mt-4 p-2 bg-white rounded-md">
+          <h2 class="text-2xl font-bold text-gray-800">Stats</h2>
           <p id="level"></p>
           <p id="class"></p>
           <p id="hp"></p>
@@ -64,20 +64,19 @@
       </div>
       
   
-      <div class=" w-[90%] h-200 bg-red-800 border p-4 mb-6 ml-4">
-        <h1 class="font-bold text-white text-3xl bg-orange-300 rounded-md p-2">
+      <div class=" w-[90%] h-200 bg-orange-100 border p-4 mb-6 ml-4">
+        <h1 class="font-bold text-white text-3xl bg-orange-300 rounded-md p-2 bg-red-950">
           Random Enemy Generator
         </h1>
   
         <div class="flex items-center" id="enemy-info">
           <div class="ml-4" id="enemy-details">
 
-            <!-- Also not sure how to get the button and info container side-by-side here. -->
             <div>
-              <button id="generate" class="mt-4 bg-orange-600 text-white px-4 py-2 rounded-md">Generate Enemy</button>
+              <button id="generate" class="mt-4 bg-amber-600 text-white px-4 py-2 rounded-md text-xl">Generate Enemy</button>
             </div>
-            <div class="object-right-center mt-4 p-2 bg-gray-200 rounded-md">
-              <h2 id="enemy" class="text-xl font-bold text-gray-800">Enemy</h2>
+            <div class="object-right-center mt-4 p-2 bg-white rounded-md">
+              <h2 id="enemy" class="text-2xl font-bold text-gray-800">Enemy Stats</h2>
               <p id="cr"></p>
               <p id="ehp"></p>
               <p id="eac"></p>
@@ -93,8 +92,8 @@
       </div>
     </div>
 
-      <div class="flex flex-col items-center w-[500px] h-200px bg-red-800 border p-4 mb-6 ml-4">
-        <h1 class="font-bold w-full text-white text-3xl bg-orange-300 rounded-md p-2 text-center">
+      <div class="flex flex-col items-center w-[500px] h-200px bg-orange-100 border p-4 mb-6 ml-4 mt-4">
+        <h1 class="font-bold w-full text-white text-3xl bg-orange-300 rounded-md p-2 text-center bg-red-950">
           Results
         </h1>
         </div>
