@@ -239,6 +239,11 @@ $("#generate").on("click", function(){
     
 });
 
+$("#goBack").on("click", function(){
+    window.location.href = "index.html"
+});
+
+
 modalConfirm.on('click', function() {
     modal.addClass('hidden');
     modalOverlay.addClass('hidden');
