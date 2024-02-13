@@ -13,6 +13,7 @@ var wis = 0;
 var cha = 0;
 
 //enemy stats
+var enemy;
 var cr = 0;
 var ehp = 0;
 var eac = 0;
@@ -114,24 +115,58 @@ function fillStats(){
 
 //this fucntion fills in the info for the enemy
 function enemyStats(){
-    //cr = ;
-    $("#cr").text("Level: " + cr);
-    //ehp = ;
+
+    //random num gen to grab 1 of 8 monsters to fetch from
+    var x = Math.floor(Math.random() * 8);
+    var monster;
+    if(x == 0){
+        monster = "merfolk";
+    }else if(x == 1){
+        monster = "golbin";
+    }else if(x == 2){
+        monster = "magmin";
+    }else if(x == 3){
+        monster = "giant-toad";
+    }else if(x == 4){
+        monster = "centaur";
+    }else if(x == 5){
+        monster = "owlbear";
+    }else if(x == 6){
+        monster = "ghost";
+    }else if(x == 7){
+        monster = "xorn";
+    }
+
+    fetch("https://www.dnd5eapi.co/api/monsters/" + monster)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) { 
+    console.log(data);
+    
+    enemy = data.name;
+    $("#enemy").text(enemy);
+    cr = data.challenge_rating;
+    $("#cr").text("Challenge Rating: " + cr);
+    ehp = data.hit_points;
     $("#ehp").text("HP: " + ehp);
-    //eac = ;
+    eac = data.armor_class[0].value;
     $("#eac").text("AC: " + eac);
-    //estr = ;
+    estr = data.strength;
     $("#estr").text("Str: " + estr);
-    //edex = ;
+    edex = data.dexterity;
     $("#edex").text("Dex: " + edex);
-    //econ = ;
+    econ = data.constitution;
     $("#econ").text("Con: " + econ);
-    //eint = ;
+    eint = data.intelligence;
     $("#eint").text("Int: " + eint);
-    //ewis = ;
+    ewis = data.wisdom;
     $("#ewis").text("wis: " + ewis);
-    //echa = ;
+    echa = data.charisma;
     $("#echa").text("cha: " + echa);
+    })
+
+    
 }
 
 
