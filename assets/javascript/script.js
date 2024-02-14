@@ -43,7 +43,7 @@ function fillStats() {
     var conMod;
 
     level = localStorage.getItem("charLevel");
-    charClass = localStorage.getItem("charClass");
+    charClass = localStorage.getItem("charClass");;
     str = localStorage.getItem("charStrength");
     dex = localStorage.getItem("charDex");
     con = localStorage.getItem("charConstitution");
@@ -108,6 +108,7 @@ function fillStats() {
     let charImg = classImgMap[charClass];
     let charSelector = "#char-img-anchor";
     insertImage(charSelector, charImg, "char-img");
+    $("#char-img").addClass('w-36');
 
 
     if (charClass == "barbarian") {
@@ -129,7 +130,7 @@ function fillStats() {
 
     $("#level").text("Level: " + level);
     //$("#class").text("Class: " + charClass.charAt(0).toUpperCase() + charClass.slice(1));
-    $("#class").text("Class: " + charClass);
+    $("#class").text("Class: " + charClass[0].toUpperCase() + charClass.slice(1));
     $("#hp").text("HP: " + hp);
     $("#ac").text("AC: " + ac);
     $("#str").text("Str: " + str);
@@ -183,6 +184,8 @@ function enemyStats() {
         imgPath = "./assets/images/enemies/Xorn.png";
         insertImage(enemyImgSelector, imgPath, "enemy-img");
     }
+
+    $("#enemy-img").addClass('w-44');
 
     fetch("https://www.dnd5eapi.co/api/monsters/" + monster)
         .then(function (response) {
@@ -381,6 +384,7 @@ playlistTwo();
 
 //on click event run the function to fill in the enemy info then once the info is filled run a compare
 $("#generate").on("click", function () {
+    $("#enemy-cont").removeClass('hidden')
     enemyStats();
     compare();
 
