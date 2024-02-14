@@ -129,8 +129,7 @@ function fillStats() {
     }
 
     $("#level").text("Level: " + level);
-    //$("#class").text("Class: " + charClass.charAt(0).toUpperCase() + charClass.slice(1));
-    $("#class").text("Class: " + charClass[0].toUpperCase() + charClass.slice(1));
+    $("#class").text("Class: " + charClass);
     $("#hp").text("HP: " + hp);
     $("#ac").text("AC: " + ac);
     $("#str").text("Str: " + str);
@@ -355,7 +354,6 @@ function playlistOne() {
     .then(function (data) {
         
         for (var i = 0; i < data.items.length; i++) {
-            console.log(data.items[i].snippet.title);
             var p = $("<p>");
             p.text(data.items[i].snippet.title);
             $("#songListOne").append(p);
@@ -371,7 +369,6 @@ function playlistTwo() {
     .then(function (data) {
         
         for (var i = 0; i < data.items.length; i++) {
-            console.log(data.items[i].snippet.title);
             var p = $("<p>");
             p.text(data.items[i].snippet.title);
             $("#songListTwo").append(p);
