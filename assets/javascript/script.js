@@ -35,7 +35,12 @@ fillStats();
 // ########## Function Definitions: ##########
 
 //this function fills the player info
-function fillStats(){
+function fillStats() {
+
+    var player = localStorage.getItem("player");
+    var hp;
+    var ac;
+    var conMod;
 
     level = localStorage.getItem("charLevel");
     charClass = localStorage.getItem("charClass");
@@ -48,58 +53,76 @@ function fillStats(){
 
     //finds con mod based on con score entered
     var conMod;
-    if(con > 18){
+    if (con > 18) {
         conMod = 5;
-    }else if(con > 16){
+    } else if (con > 16) {
         conMod = 4;
-    }else if(con > 14){
+    } else if (con > 14) {
         conMod = 3;
-    }else if(con > 12){
+    } else if (con > 12) {
         conMod = 2;
-    }else if(con > 10){
+    } else if (con > 10) {
         conMod = 1;
-    }else if(con > 8){
+    } else if (con > 8) {
         conMod = 0;
-    }else if(con > 6){
+    } else if (con > 6) {
         conMod = -1;
-    }else{
+    } else {
         conMod = -2;
     }
 
     //finds dex mod based on dex entrered
     var dexMod;
-    if(dex > 19){
+    if (dex > 19) {
         dexMod = 5;
-    }else if(dex > 17){
+    } else if (dex > 17) {
         dexMod = 4;
-    }else if(dex > 15){
+    } else if (dex > 15) {
         dexMod = 3;
-    }else if(dex > 13){
+    } else if (dex > 13) {
         dexMod = 2;
-    }else if(dex > 11){
+    } else if (dex > 11) {
         dexMod = 1;
-    }else if(dex > 9){
+    } else if (dex > 9) {
         dexMod = 0;
-    }else if(dex > 7){
+    } else if (dex > 7) {
         dexMod = -1;
-    }else{
+    } else {
         dexMod = -2;
     }
 
-    
-    if(charClass == "barbarian"){
+    let classImgMap = {
+        barbarian: "./assets/images/character/Barbarian.png",
+        bard: "./assets/images/character/Bard.png",
+        cleric: "./assets/images/character/Cleric.png",
+        druid: "./assets/images/character/Druid.png",
+        fighter: "./assets/images/character/Fighter.png",
+        monk: "./assets/images/character/Monk.png",
+        paladin: "./assets/images/character/Paldin.png",
+        rogue: "./assets/images/character/Rogue.png",
+        sorcerer: "./assets/images/character/Sorcerer.png",
+        warlock: "./assets/images/character/Warlock.png",
+        wizard: "./assets/images/character/Wizard.png",
+
+    }
+    let charImg = classImgMap[charClass];
+    let charSelector = "#char-img-anchor";
+    insertImage(charSelector, charImg, "char-img");
+
+
+    if (charClass == "barbarian") {
         hp = (7 * (level - 1)) + (conMod * level) + 12;
         ac = 10 + dexMod + conMod;
-    }else if(charClass == "fighter" || charClass == "paladin"){
+    } else if (charClass == "fighter" || charClass == "paladin") {
         hp = (6 * (level - 1)) + (conMod * level) + 10;
         ac = 16;
-    }else if(charClass == "bard" || charClass == "cleric" || charClass == "druid" || charClass == "monk" || charClass == "rouge" || charClass == "sorcerer" || charClass == "warlock"){
+    } else if (charClass == "bard" || charClass == "cleric" || charClass == "druid" || charClass == "monk" || charClass == "rouge" || charClass == "sorcerer" || charClass == "warlock") {
         hp = (5 * (level - 1)) + (conMod * level) + 8;
         ac = 12 + dexMod;
-    }else if(charClass == "wizard"){
+    } else if (charClass == "wizard") {
         hp = (4 * (level - 1)) + (conMod * level) + 6;
         ac = 10 + dexMod;
-    }else {
+    } else {
         hp = 1;
         ac = 1;
     }
@@ -115,165 +138,198 @@ function fillStats(){
     $("#int").text("Int: " + int);
     $("#wis").text("wis: " + wis);
     $("#cha").text("cha: " + cha);
-  
 }
 
 //this fucntion fills in the info for the enemy
-function enemyStats(){
+function enemyStats() {
 
     //random num gen to grab 1 of 8 monsters to fetch from
     var x = Math.floor(Math.random() * 8);
     var monster;
-    if(x == 0){
+    let imgPath;
+    let enemyImgSelector = "#enemy-img-anchor"
+    // remove old enemy image (so you dont have more than one image)
+    $("#enemy-img").remove();
+    if (x == 0) {
         monster = "merfolk";
-    }else if(x == 1){
+        imgPath = "./assets/images/enemies/Merfolk.png";
+        insertImage(enemyImgSelector, imgPath, "enemy-img");
+    } else if (x == 1) {
         monster = "goblin";
-    }else if(x == 2){
+        imgPath = "./assets/images/enemies/Goblin.png";
+        insertImage(enemyImgSelector, imgPath, "enemy-img");
+    } else if (x == 2) {
         monster = "magmin";
-    }else if(x == 3){
+        imgPath = "./assets/images/enemies/Magmin.png";
+        insertImage(enemyImgSelector, imgPath, "enemy-img");
+    } else if (x == 3) {
         monster = "giant-toad";
-    }else if(x == 4){
+        imgPath = "./assets/images/enemies/Giant Toad.png";
+        insertImage(enemyImgSelector, imgPath, "enemy-img");
+    } else if (x == 4) {
         monster = "centaur";
-    }else if(x == 5){
+        imgPath = "./assets/images/enemies/Centaur.png";
+        insertImage(enemyImgSelector, imgPath, "enemy-img");
+    } else if (x == 5) {
         monster = "owlbear";
-    }else if(x == 6){
+        imgPath = "./assets/images/enemies/OwlBear.png";
+        insertImage(enemyImgSelector, imgPath, "enemy-img");
+    } else if (x == 6) {
         monster = "ghost";
-    }else if(x == 7){
+        imgPath = "./assets/images/enemies/Ghost.png";
+        insertImage(enemyImgSelector, imgPath, "enemy-img");
+    } else if (x == 7) {
         monster = "xorn";
+        imgPath = "./assets/images/enemies/Xorn.png";
+        insertImage(enemyImgSelector, imgPath, "enemy-img");
     }
 
     fetch("https://www.dnd5eapi.co/api/monsters/" + monster)
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) { 
-    enemy = data.name;
-    $("#enemy").text(enemy);
-    cr = data.challenge_rating;
-    $("#cr").text("Challenge Rating: " + cr);
-    ehp = data.hit_points;
-    $("#ehp").text("HP: " + ehp);
-    eac = data.armor_class[0].value;
-    $("#eac").text("AC: " + eac);
-    estr = data.strength;
-    $("#estr").text("Str: " + estr);
-    edex = data.dexterity;
-    $("#edex").text("Dex: " + edex);
-    econ = data.constitution;
-    $("#econ").text("Con: " + econ);
-    eint = data.intelligence;
-    $("#eint").text("Int: " + eint);
-    ewis = data.wisdom;
-    $("#ewis").text("wis: " + ewis);
-    echa = data.charisma;
-    $("#echa").text("cha: " + echa);
-    compare();
-    })
-    
-    
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+
+            enemy = data.name;
+            $("#enemy").text(enemy);
+            cr = data.challenge_rating;
+            $("#cr").text("Challenge Rating: " + cr);
+            ehp = data.hit_points;
+            $("#ehp").text("HP: " + ehp);
+            eac = data.armor_class[0].value;
+            $("#eac").text("AC: " + eac);
+            estr = data.strength;
+            $("#estr").text("Str: " + estr);
+            edex = data.dexterity;
+            $("#edex").text("Dex: " + edex);
+            econ = data.constitution;
+            $("#econ").text("Con: " + econ);
+            eint = data.intelligence;
+            $("#eint").text("Int: " + eint);
+            ewis = data.wisdom;
+            $("#ewis").text("wis: " + ewis);
+            echa = data.charisma;
+            $("#echa").text("cha: " + echa);
+            compare();
+        })
+
+
 }
 
-//compare your stats to the monster to see how you stack up
+
 function compare() {
     //var to hold how many ways you are better than your opponent
     var stackUp = [];
     //compare hp
-    if(hp > ehp){
+    if (hp > ehp) {
         stackUp[0] = true;
-    }else {
+    } else {
         stackUp[0] = false;
     }
     //compae ac
-    if(ac > eac){
+    if (ac > eac) {
         stackUp[1] = true;
-    }else {
+    } else {
         stackUp[1] = false;
     }
     //compare strength
-    if(str > estr){
+    if (str > estr) {
         stackUp[2] = true;
-    }else {
+    } else {
         stackUp[2] = false;
     }
     //compare dexterity
-    if(dex > edex){
+    if (dex > edex) {
         stackUp[3] = true;
-    }else {
+    } else {
         stackUp[3] = false;
     }
     //compare con
-    if(con > econ){
+    if (con > econ) {
         stackUp[4] = true;
-    }else {
+    } else {
         stackUp[4] = false;
     }
     //compare int
-    if(int > eint){
+    if (int > eint) {
         stackUp[5] = true;
-    }else {
+    } else {
         stackUp[5] = false;
     }
     //compare wisdom
-    if(wis > ewis){
+    if (wis > ewis) {
         stackUp[6] = true;
-    }else {
+    } else {
         stackUp[6] = false;
     }
     //compare charisma
-    if(cha > echa){
+    if (cha > echa) {
         stackUp[7] = true;
-    }else {
+    } else {
         stackUp[7] = false;
     }
     var numofTrue = 0;
-    for(var i = 0; i < stackUp.length; i++){
-        if(stackUp[i] == true){
+    for (var i = 0; i < stackUp.length; i++) {
+        if (stackUp[i] == true) {
             numofTrue++;
         }
     }
     console.log(numofTrue);
-    if(numofTrue >= (stackUp.length + 1)/2){
+    if (numofTrue >= (stackUp.length + 1) / 2) {
         $("#results").text("You win!");
-    }else {
+    } else {
         $("#results").text("You lose!");
     }
 
 }
 
-function getSelectedCharClass(){
+function getSelectedCharClass() {
     return $("#char-class").val();
 }
 
-function getSelectedCharLevel(){
+function getSelectedCharLevel() {
     return $("#char-level").val();
 }
 
-function getSelectedCharStrength(){
+function getSelectedCharStrength() {
     return $("#char-strength").val();
 }
 
-function getSelectedCharDex(){
+function getSelectedCharDex() {
     return $("#char-dex").val();
 }
 
-function getSelectedCharConstitution(){
+function getSelectedCharConstitution() {
     return $("#char-constitution").val();
 }
 
-function getSelectedCharIntell(){
+function getSelectedCharIntell() {
     return $("#character-intell").val();
 }
 
-function getSelectedCharWisdom(){
+function getSelectedCharWisdom() {
     return $("#char-wisdom").val();
 }
 
-function getSelectedCharCharisma(){
+function getSelectedCharCharisma() {
     return $("#char-charisma").val();
 }
 
+function insertImage(selector, imagePath, imgId) {
+    // Create an image element
+    let img = $('<img>', {
+        src: imagePath,
+        alt: 'Image could not be loaded',
+        id: imgId
+    });
+
+    // Insert the image into the specified element
+    $(selector).append(img);
+}
+
 //fuction called when the user clicks the create buttoin on the index page
-$("#create").on("click", function() {
+$("#create").on("click", function () {
     //gets the info from the drop down menus and stores the values in the global vars
     localStorage.setItem("charClass", getSelectedCharClass());
     localStorage.setItem("charLevel", getSelectedCharLevel());
@@ -289,27 +345,28 @@ $("#create").on("click", function() {
 });
 
 //on click event run the function to fill in the enemy info then once the info is filled run a compare
-$("#generate").on("click", function(){
+$("#generate").on("click", function () {
     enemyStats();
-    
+    compare();
+
 });
 
-$("#goBack").on("click", function(){
+$("#goBack").on("click", function () {
     window.location.href = "index.html"
 });
 
 
-modalConfirm.on('click', function() {
+modalConfirm.on('click', function () {
     modal.addClass('hidden');
     modalOverlay.addClass('hidden');
 });
 
-modalExit.on('click', function() {
+modalExit.on('click', function () {
     modal.addClass('hidden');
     modalOverlay.addClass('hidden');
 });
 
-modalToggle.on('click', function() {
+modalToggle.on('click', function () {
     modal.removeClass('hidden');
     modal.removeClass('hidden');
 });
