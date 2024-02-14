@@ -14,19 +14,22 @@
     <title>DnD Character Creator</title>
   </head>
 
-  <body class="flex flex-col items-center m-0 bg-gray-200">
-    <header class="bg-red-900 w-full flex items-center justify-around m-0">
-      <h1 class="text-gray-50 p-10 text-5xl">D&D Character Comparison</h1>
-
+  <body class="flex flex-col items-center m-0 bg-white">
+    <header
+      class="bg-red-700 w-full flex items-center justify-around border-b-4 border-gray-700 m-0"
+    >
+      <h1 class="text-gray-50 p-10 text-7xl">D&D Character Comparison</h1>
       <button
         id="goBack"
-        class="text-white bg-amber-600 hover:bg-amber-700 focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-lg p-4 h-4/5 text-center"
+        class="text-white bg-amber-600 hover:bg-amber-700 focus:ring-2 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-lg p-4 h-4/5 text-center"
       >
         Go back
       </button>
     </header>
 
-    <main class="flex flex-col items-center bg-gray-50 h-full m-0 w-3/4 pb-20">
+    <main
+      class="flex flex-col items-center bg-gray-50 h-screen m-0 w-4/5 pb-20"
+    >
       <div
         class="flex flex-row justify-start items-center gap-10 w-3/4 border-b-2 border-gray-600 py-10"
       >
@@ -42,69 +45,83 @@
           class="ml-10 rounded-lg"
         ></iframe>
         <div id="songListTwo">
-          <h2>Playlist songs:</h2>
+          <h2 class="text-2xl font-bold mb-1">Playlist songs:</h2>
         </div>
       </div>
 
-      <section class="flex flex-row justify-center mt-10" id="character-comps">
-        <div class="flex flex-col">
-          <div class="w-[90%] h-200 bg-orange-100 rounded-lg border p-4 mb-6 ml-4 mt-4">
-            <h1 class="font-bold text-white text-3xl bg-red-900 rounded-md p-2">
-              Your Character
+      <section
+        class="flex flex-row justify-center mt-10 w-4/5 h-full"
+        id="character-comps"
+      >
+        <div class="flex flex-col items-center w-1/2">
+          <div
+            class="w-[90%] h-9/12 bg-gray-700 rounded-xl border p-4 mb-6 ml-4 mt-4"
+          >
+            <h1 class="font-bold text-white text-3xl bg-red-700 rounded-md p-2">
+              Character Stats
             </h1>
-
-            <div class="flex object-left-center" id="character-info">
-              <div class="ml-4 flex flex-col" id="character-details"></div>
-            </div>
-
-            <div class="object-right-center mt-4 p-2 bg-white rounded-md">
+            <div
+              class="flex flex-row justify-around items-center object-right-center mt-4 p-2 bg-white rounded-md"
+            >
               <!-- <img src="./assets/fighter.png" alt="Character Image" class="mr-4 p-4 w-20 h-20 object-cover"> -->
               <div id="char-img-anchor"></div>
-              <h2 class="text-2xl font-bold text-gray-800">Stats</h2>
-              <p id="level"></p>
-              <p id="class"></p>
-              <p id="hp"></p>
-              <p id="ac"></p>
-              <p id="str"></p>
-              <p id="dex"></p>
-              <p id="con"></p>
-              <p id="int"></p>
-              <p id="wis"></p>
-              <p id="cha"></p>
+              <div class="flex flex-col justify-center gap-5 p-5">
+                <h3 id="class" class="text-center text-4xl p-3 bg-gray-100 rounded-md border-b-4"></h3>
+                <div class="flex flex-row justify-center gap-8">
+                  <p id="level" class="text-xl text-center"></p>
+                  <p id="hp" class="text-xl text-center"></p>
+                  <p id="ac" class="text-xl text-center"></p>
+                </div>
+                  <div class="flex flex-row justify-center gap-8">
+                    <p id="str" class="text-lg text-center"></p>
+                    <p id="dex" class="text-lg text-center"></p>
+                    <p id="con" class="text-lg text-center"></p>
+                    <p id="int" class="text-lg text-center"></p>
+                    <p id="wis" class="text-lg text-center"></p>
+                    <p id="cha" class="text-lg text-center"></p>
+                  </div>
+              </div>
             </div>
           </div>
 
-          <div class="w-[90%] h-200 bg-orange-100 rounded-lg border p-4 mb-6 ml-4">
-            <h1
-              class="font-bold text-white text-3xl bg-orange-300 rounded-md p-2 bg-red-900"
-            >
-              Random Enemy Generator
+          <div
+            class="w-[90%] h-200 bg-gray-700 rounded-xl border p-4 mb-6 ml-4"
+          >
+            <h1 class="font-bold text-white text-3xl rounded-md p-2 bg-red-700">
+              Enemy Stats
             </h1>
 
             <div class="m-0" id="enemy-info">
               <div class="" id="enemy-details">
-                <div>
+                <div class="flex flex-row items-center justify-between">
                   <button
                     id="generate"
-                    class="mt-4 bg-amber-600 text-white px-4 py-2 rounded-md text-xl"
+                    class="mt-4 px-4 py-3 text-white bg-amber-600 hover:bg-amber-700 focus:ring-2 focus:outline-none focus:ring-gray-800 rounded-lg text-lg p-4 text-center"
                   >
                     Generate Enemy
                   </button>
                 </div>
-                <div class="object-right-center mt-4 p-2 bg-white rounded-md">
+                <div
+                  id="enemy-cont"
+                  class="hidden flex flex-row justify-around items-center object-right-center mt-4 bg-white rounded-md p-2"
+                >
                   <div id="enemy-img-anchor"></div>
-                  <h2 id="enemy" class="text-2xl font-bold text-gray-800">
-                    Enemy Stats
-                  </h2>
-                  <p id="cr"></p>
-                  <p id="ehp"></p>
-                  <p id="eac"></p>
-                  <p id="estr"></p>
-                  <p id="edex"></p>
-                  <p id="econ"></p>
-                  <p id="eint"></p>
-                  <p id="ewis"></p>
-                  <p id="echa"></p>
+                  <div class="flex flex-col justify-center gap-5 p-5">
+                    <h3 id="enemy" class="text-center text-4xl p-3 bg-gray-100 rounded-md border-b-4"></h3>
+                    <div class="flex flex-row justify-center gap-8">
+                      <p id="cr" class="text-xl text-center"></p>
+                      <p id="ehp" class="text-xl text-center"></p>
+                      <p id="eac" class="text-xl text-center"></p>
+                    </div>
+                    <div class="flex flex-row justify-center gap-8">
+                      <p id="estr" class="text-lg text-center"></p>
+                      <p id="edex" class="text-lg text-center"></p>
+                      <p id="econ" class="text-lg text-center"></p>
+                      <p id="eint" class="text-lg text-center"></p>
+                      <p id="ewis" class="text-lg text-center"></p>
+                      <p id="echa" class="text-lg text-center"></p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -112,13 +129,16 @@
         </div>
 
         <div
-          class="flex flex-col items-center w-[500px] h-200px bg-orange-100 rounded-lg border p-4 mb-6 ml-4 mt-4"
+          class="flex flex-col items-center w-[500px] h-4/5 bg-gray-700 rounded-xl border p-4 mb-6 ml-4 mt-4"
         >
           <h1
-            class="font-bold w-full text-white text-3xl bg-orange-300 rounded-md p-2 text-center bg-red-900"
+            class="font-bold w-full text-white text-3xl rounded-md p-2 text-center bg-red-700"
           >
             Results
           </h1>
+          <div
+            class="flex flex-row justify-around object-right-center mt-4 bg-white rounded-md p-2 h-full w-full"
+          ></div>
         </div>
       </section>
     </main>
