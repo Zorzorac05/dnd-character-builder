@@ -20,11 +20,11 @@
       class="modal-overlay fixed w-full h-dvh bg-gray-900 z-10 opacity-50"
     ></div>
 
-    <header class="bg-red-700 w-full flex items-center justify-around border-b-4 border-gray-700 m-0">
+    <header class="bg-gray-700 w-full flex items-center justify-around border-b-4 border-red-700 m-0">
       <h1 class="text-gray-50 p-10 text-7xl">D&D Character Comparison</h1>
 
       <button
-        class="text-white bg-amber-600 hover:bg-amber-700 focus:ring-2 focus:outline-none focus:ring-gray-800 rounded-lg text-lg p-4 h-4/5 text-center"
+        class="text-white bg-amber-600 hover:bg-amber-700 focus:ring-2 focus:outline-none focus:ring-gray-500 rounded-lg text-lg p-4 h-4/5 text-center"
         type="button"
       >
         Instructions
@@ -92,7 +92,7 @@
               <button
                 id="modal-confirm"
                 type="button"
-                class="text-white bg-amber-600 hover:bg-amber-700 focus:ring-2 focus:outline-none focus:ring-gray-800 rounded-lg text-lg p-4 text-center"
+                class="text-white bg-amber-600 hover:bg-amber-700 focus:ring-2 focus:outline-none focus:ring-gray-500 rounded-lg text-lg p-4 text-center"
               >
                 Sounds Good!
               </button>
@@ -103,7 +103,7 @@
     </header>
 
     <main
-      class="flex flex-col items-center bg-gray-50 h-screen m-0 w-3/4 pb-20"
+      class="flex flex-col items-center bg-gray-200 h-screen m-0 w-3/4 pb-20"
     >
       <div class="flex flex-row justify-start items-center gap-10 w-3/4 border-b-2 border-gray-600 py-10">
         <!-- Music player -->
@@ -122,15 +122,15 @@
         </div>
       </div>
 
-      <h1 class="my-10 text-6xl font-bold py-5">Create Your Character</h1>
+      <h1 class="my-10 text-5xl font-bold py-5 p-10">Create Your Character</h1>
 
-      <section class="flex flex-col gap-8 w-1/4">
+      <section class="flex flex-col gap-5 w-2/5 bg-gray-100 p-10 px-20 border-4 border-gray-600 rounded-lg">
         <button
-          class="relative flex justify-between items-center bg-white border focus:outline-none shadow text-gray-600 rounded ring ring-gray-600 focus:ring-gray-800 w-100 h-10"
+          class="relative flex justify-between items-center bg-white border focus:outline-none shadow text-gray-600 rounded-md ring ring-gray-600 focus:ring-gray-800 w-100 h-10"
         >
           <!-- Class drop-down box -->
           <label for="char-class" class="ml-2 text-xl">Class</label>
-          <select class="char-class ml-auto text-right text-xl" id="char-class">
+          <select class="char-class ml-auto text-right text-xl rounded-md" id="char-class">
             <option value="barbarian">Barbarian</option>
             <option value="bard">Bard</option>
             <option value="cleric">Cleric</option>
@@ -162,11 +162,11 @@
           </span>
         </button>
         <button
-          class="relative flex justify-between items-center bg-white border focus:outline-none shadow text-gray-600 rounded ring ring-gray-600 focus:ring-gray-800 w-100 h-10"
+          class="relative flex justify-between items-center bg-white border focus:outline-none shadow text-gray-600 rounded-md ring ring-gray-600 focus:ring-gray-800 w-100 h-10"
         >
           <!-- Level drop-down box -->
           <label for="char-level" class="ml-2 text-xl">Level</label>
-          <select class="char-class ml-auto text-right text-xl" id="char-level">
+          <select class="char-class ml-auto text-right text-xl rounded-md" id="char-level">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -192,12 +192,12 @@
           </span>
         </button>
         <button
-          class="relative flex justify-between items-center bg-white border focus:outline-none shadow text-gray-600 rounded ring ring-gray-600 focus:ring-gray-800 w-100 h-10"
+          class="relative flex justify-between items-center bg-white border focus:outline-none shadow text-gray-600 rounded-md ring ring-gray-600 focus:ring-gray-800 w-100 h-10"
         >
           <!-- Strength drop-down box -->
           <label for="char-strength" class="ml-2 text-xl">Strength</label>
           <select
-            class="char-class ml-auto text-right text-xl"
+            class="char-class ml-auto text-right text-xl rounded-md"
             id="char-strength"
           >
             <option value="6">6</option>
@@ -235,11 +235,11 @@
           </span>
         </button>
         <button
-          class="relative flex justify-between items-center bg-white border focus:outline-none shadow text-gray-600 rounded ring ring-gray-600 focus:ring-gray-800 w-100 h-10"
+          class="relative flex justify-between items-center bg-white border focus:outline-none shadow text-gray-600 rounded-md ring ring-gray-600 focus:ring-gray-800 w-100 h-10"
         >
           <!-- Dexterity drop-down box -->
           <label for="char-dex" class="ml-2 text-xl">Dexterity</label>
-          <select class="char-class ml-auto text-right text-xl" id="char-dex">
+          <select class="char-class ml-auto text-right text-xl rounded-md" id="char-dex">
             <option value="6">6</option>
             <option value="7">7</option>
             <option value="8">8</option>
@@ -275,14 +275,14 @@
           </span>
         </button>
         <button
-          class="relative flex justify-between items-center bg-white border focus:outline-none shadow text-gray-600 rounded ring ring-gray-600 focus:ring-gray-800 w-100 h-10"
+          class="relative flex justify-between items-center bg-white border focus:outline-none shadow text-gray-600 rounded-md ring ring-gray-600 focus:ring-gray-800 w-100 h-10"
         >
           <!-- Constitution drop-down box -->
           <label for="char-constitution" class="ml-2 text-xl"
             >Constitution</label
           >
           <select
-            class="char-class ml-auto text-right text-xl"
+            class="char-class ml-auto text-right text-xl rounded-md"
             id="char-constitution"
           >
             <option value="6">6</option>
@@ -320,12 +320,12 @@
           </span>
         </button>
         <button
-          class="relative flex justify-between items-center bg-white border focus:outline-none shadow text-gray-600 rounded ring ring-gray-600 focus:ring-gray-800 w-100 h-10"
+          class="relative flex justify-between items-center bg-white border focus:outline-none shadow text-gray-600 rounded-md ring ring-gray-600 focus:ring-gray-800 w-100 h-10"
         >
           <!-- Intelligence drop-down box -->
           <label for="char-intell" class="ml-2 text-xl">Intelligence</label>
           <select
-            class="char-class ml-auto text-right text-xl"
+            class="char-class ml-auto text-right text-xl rounded-md"
             id="character-intell"
           >
             <option value="6">6</option>
@@ -363,12 +363,12 @@
           </span>
         </button>
         <button
-          class="relative flex justify-between items-center bg-white border focus:outline-none shadow text-gray-600 rounded ring ring-gray-600 focus:ring-gray-800 w-100 h-10"
+          class="relative flex justify-between items-center bg-white border focus:outline-none shadow text-gray-600 rounded-md ring ring-gray-600 focus:ring-gray-800 w-100 h-10"
         >
           <!-- Wisdom drop-down box -->
           <label for="char-wisdom" class="ml-2 text-xl">Wisdom</label>
           <select
-            class="char-class ml-auto text-right text-xl"
+            class="char-class ml-auto text-right text-xl rounded-md"
             id="char-wisdom"
           >
             <option value="6">6</option>
@@ -406,12 +406,12 @@
           </span>
         </button>
         <button
-          class="relative flex justify-between items-center bg-white border focus:outline-none shadow text-gray-600 rounded ring ring-gray-600 focus:ring-gray-800 w-100 h-10"
+          class="relative flex justify-between items-center bg-white border focus:outline-none shadow text-gray-600 rounded-md ring ring-gray-600 focus:ring-gray-800 w-100 h-10"
         >
           <!-- Charisma drop-down box -->
           <label for="char-charisma" class="ml-2 text-xl">Charisma</label>
           <select
-            class="char-class ml-auto text-right text-xl"
+            class="char-class ml-auto text-right text-xl rounded-md"
             id="char-charisma"
           >
             <option value="6">6</option>
@@ -452,7 +452,7 @@
 
       <button
         id="create"
-        class="text-2xl relative flex justify-center items-center bg-amber-600 hover:bg-amber-700 focus:outline-none shadow font-semibold text-white rounded-lg focus:ring-2 focus:outline-none focus:ring-gray-800 w-52 h-18 m-10 p-5"
+        class="text-2xl relative flex justify-center items-center bg-amber-600 hover:bg-amber-700 focus:outline-none shadow font-semibold text-white rounded-lg focus:ring-2 focus:outline-none focus:ring-gray-800 w-52 h-18 my-14 p-5"
       >
         Create
       </button>

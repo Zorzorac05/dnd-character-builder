@@ -16,19 +16,19 @@
 
   <body class="flex flex-col items-center m-0 bg-white">
     <header
-      class="bg-red-700 w-full flex items-center justify-around border-b-4 border-gray-700 m-0"
+      class="bg-gray-700 w-full flex items-center justify-around border-b-4 border-red-700 m-0"
     >
       <h1 class="text-gray-50 p-10 text-7xl">D&D Character Comparison</h1>
       <button
         id="goBack"
-        class="text-white bg-amber-600 hover:bg-amber-700 focus:ring-2 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-lg p-4 h-4/5 text-center"
+        class="text-white bg-amber-600 hover:bg-amber-700 focus:ring-2 focus:outline-none focus:ring-gray-500 font-medium rounded-lg text-lg p-4 h-4/5 text-center"
       >
         Go back
       </button>
     </header>
 
     <main
-      class="flex flex-col items-center bg-gray-50 h-screen m-0 w-4/5 pb-20"
+      class="flex flex-col items-center bg-gray-200 h-screen m-0 w-4/5 pb-20"
     >
       <div
         class="flex flex-row justify-start items-center gap-10 w-3/4 border-b-2 border-gray-600 py-10"
@@ -55,13 +55,13 @@
       >
         <div class="flex flex-col items-center w-1/2">
           <div
-            class="w-[90%] h-9/12 bg-gray-700 rounded-xl border p-4 mb-6 ml-4 mt-4"
+            class="w-[90%] h-9/12 bg-gray-700 rounded-xl border p-2 mb-6 ml-4 mt-4"
           >
             <h1 class="font-bold text-white text-3xl bg-red-700 rounded-md p-2">
               Character Stats
             </h1>
             <div
-              class="flex flex-row justify-around items-center object-right-center mt-4 p-2 bg-white rounded-md"
+              class="flex flex-row justify-around items-center object-right-center mt-2 p-2 bg-white rounded-md"
             >
               <!-- <img src="./assets/fighter.png" alt="Character Image" class="mr-4 p-4 w-20 h-20 object-cover"> -->
               <div id="char-img-anchor"></div>
@@ -85,7 +85,7 @@
           </div>
 
           <div
-            class="w-[90%] h-200 bg-gray-700 rounded-xl border p-4 mb-6 ml-4"
+            class="w-[90%] h-200 bg-gray-700 rounded-xl border p-2 mb-6 ml-4"
           >
             <h1 class="font-bold text-white text-3xl rounded-md p-2 bg-red-700">
               Enemy Stats
@@ -93,17 +93,17 @@
 
             <div class="m-0" id="enemy-info">
               <div class="" id="enemy-details">
-                <div class="flex flex-row items-center justify-between">
+                <div class="flex flex-row items-center justify-center">
                   <button
                     id="generate"
-                    class="mt-4 px-4 py-3 text-white bg-amber-600 hover:bg-amber-700 focus:ring-2 focus:outline-none focus:ring-gray-800 rounded-lg text-lg p-4 text-center"
+                    class="mt-2 px-6 py-3 text-white bg-amber-600 hover:bg-amber-700 focus:ring-2 focus:outline-none focus:ring-gray-500 rounded-lg text-lg p-4 text-center"
                   >
                     Generate Enemy
                   </button>
                 </div>
                 <div
                   id="enemy-cont"
-                  class="hidden flex flex-row justify-around items-center object-right-center mt-4 bg-white rounded-md p-2"
+                  class="hidden flex flex-row justify-around items-center object-right-center mt-2 bg-white rounded-md p-2"
                 >
                   <div id="enemy-img-anchor"></div>
                   <div class="flex flex-col justify-center gap-5 p-5">
@@ -129,7 +129,7 @@
         </div>
 
         <div
-          class="flex flex-col items-center w-[500px] h-4/5 bg-gray-700 rounded-xl border p-4 mb-6 ml-4 mt-4"
+          class="flex flex-col items-center w-[500px] h-4/5 bg-gray-700 rounded-xl border p-2 mb-6 ml-4 mt-4"
         >
           <h1
             class="font-bold w-full text-white text-3xl rounded-md p-2 text-center bg-red-700"
@@ -137,7 +137,7 @@
             Results
           </h1>
           <div
-            class="flex flex-row justify-around object-right-center mt-4 bg-white rounded-md p-2 h-full w-full"
+            class="flex flex-row justify-around object-right-center mt-2 bg-white rounded-md p-2 h-full w-full"
           ></div>
         </div>
       </section>
