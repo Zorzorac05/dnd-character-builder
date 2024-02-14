@@ -20,15 +20,15 @@ var modalOverlay = $(".modal-overlay")
 
 //enemy stats
 var enemy;
-var cr = 0;
-var ehp = 0;
-var eac = 0;
-var estr = 0;
-var edex = 0;
-var econ = 0;
-var eint = 0;
-var ewis = 0;
-var echa = 0;
+var cr;
+var ehp;
+var eac;
+var estr;
+var edex;
+var econ;
+var eint;
+var ewis;
+var echa;
 // ########## Application Logic: ##########
 
 fillStats();
@@ -36,11 +36,6 @@ fillStats();
 
 //this function fills the player info
 function fillStats(){
-
-    var player = localStorage.getItem("player");
-    var hp;
-    var ac;
-    var conMod;
 
     level = localStorage.getItem("charLevel");
     charClass = localStorage.getItem("charClass");
@@ -73,19 +68,19 @@ function fillStats(){
 
     //finds dex mod based on dex entrered
     var dexMod;
-    if(dex > 18){
+    if(dex > 19){
         dexMod = 5;
-    }else if(dex > 16){
+    }else if(dex > 17){
         dexMod = 4;
-    }else if(dex > 14){
+    }else if(dex > 15){
         dexMod = 3;
-    }else if(dex > 12){
+    }else if(dex > 13){
         dexMod = 2;
-    }else if(dex > 10){
+    }else if(dex > 11){
         dexMod = 1;
-    }else if(dex > 8){
+    }else if(dex > 9){
         dexMod = 0;
-    }else if(dex > 6){
+    }else if(dex > 7){
         dexMod = -1;
     }else{
         dexMod = -2;
@@ -120,6 +115,7 @@ function fillStats(){
     $("#int").text("Int: " + int);
     $("#wis").text("wis: " + wis);
     $("#cha").text("cha: " + cha);
+  
 }
 
 //this fucntion fills in the info for the enemy
@@ -131,7 +127,7 @@ function enemyStats(){
     if(x == 0){
         monster = "merfolk";
     }else if(x == 1){
-        monster = "golbin";
+        monster = "goblin";
     }else if(x == 2){
         monster = "magmin";
     }else if(x == 3){
@@ -151,8 +147,6 @@ function enemyStats(){
         return response.json();
     })
     .then(function (data) { 
-    console.log(data);
-    
     enemy = data.name;
     $("#enemy").text(enemy);
     cr = data.challenge_rating;
@@ -173,14 +167,76 @@ function enemyStats(){
     $("#ewis").text("wis: " + ewis);
     echa = data.charisma;
     $("#echa").text("cha: " + echa);
+    compare();
     })
-
+    
     
 }
 
-
+//compare your stats to the monster to see how you stack up
 function compare() {
-    console.log("hello");
+    //var to hold how many ways you are better than your opponent
+    var stackUp = [];
+    //compare hp
+    if(hp > ehp){
+        stackUp[0] = true;
+    }else {
+        stackUp[0] = false;
+    }
+    //compae ac
+    if(ac > eac){
+        stackUp[1] = true;
+    }else {
+        stackUp[1] = false;
+    }
+    //compare strength
+    if(str > estr){
+        stackUp[2] = true;
+    }else {
+        stackUp[2] = false;
+    }
+    //compare dexterity
+    if(dex > edex){
+        stackUp[3] = true;
+    }else {
+        stackUp[3] = false;
+    }
+    //compare con
+    if(con > econ){
+        stackUp[4] = true;
+    }else {
+        stackUp[4] = false;
+    }
+    //compare int
+    if(int > eint){
+        stackUp[5] = true;
+    }else {
+        stackUp[5] = false;
+    }
+    //compare wisdom
+    if(wis > ewis){
+        stackUp[6] = true;
+    }else {
+        stackUp[6] = false;
+    }
+    //compare charisma
+    if(cha > echa){
+        stackUp[7] = true;
+    }else {
+        stackUp[7] = false;
+    }
+    var numofTrue = 0;
+    for(var i = 0; i < stackUp.length; i++){
+        if(stackUp[i] == true){
+            numofTrue++;
+        }
+    }
+    console.log(numofTrue);
+    if(numofTrue >= (stackUp.length + 1)/2){
+        $("#results").text("You win!");
+    }else {
+        $("#results").text("You lose!");
+    }
 
 }
 
@@ -235,7 +291,6 @@ $("#create").on("click", function() {
 //on click event run the function to fill in the enemy info then once the info is filled run a compare
 $("#generate").on("click", function(){
     enemyStats();
-    compare();
     
 });
 
