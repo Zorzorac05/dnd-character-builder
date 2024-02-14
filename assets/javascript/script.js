@@ -1,4 +1,4 @@
-//fetch("https://youtube.googleapis.com/youtube/v3/playlists?key=AIzaSyCXMsxFGkkJjCZmQmL7b1zKT0XQ-NBiCIE")
+//fetch("https://youtube.googleapis.com/youtube/v3/playlistItems?key=AIzaSyCXMsxFGkkJjCZmQmL7b1zKT0XQ-NBiCIE")
 //player stats
 
 // ########## Variable Definitions: ##########
@@ -275,7 +275,6 @@ function compare() {
             numofTrue++;
         }
     }
-    console.log(numofTrue);
     if (numofTrue >= (stackUp.length + 1) / 2) {
         $("#results").text("You win!");
     } else {
@@ -343,6 +342,42 @@ $("#create").on("click", function () {
     //takes the user to the 2nd page
     window.location.href = "secondPage.html"
 });
+
+//function to get list of songs from a playlist on first page
+function playlistOne() {
+    fetch('https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=25&playlistId=PL3XFhex_Ve-wFXYEjRJgp4R2su9WIx2Zq&key=AIzaSyCXMsxFGkkJjCZmQmL7b1zKT0XQ-NBiCIE')
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        
+        for (var i = 0; i < data.items.length; i++) {
+            console.log(data.items[i].snippet.title);
+            var p = $("<p>");
+            p.text(data.items[i].snippet.title);
+            $("#songListOne").append(p);
+        }
+    });
+}
+
+function playlistTwo() {
+    fetch('https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=25&playlistId=PL3XFhex_Ve-xSmCSyds7SxPHnMgfNes7y&key=AIzaSyCXMsxFGkkJjCZmQmL7b1zKT0XQ-NBiCIE')
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        
+        for (var i = 0; i < data.items.length; i++) {
+            console.log(data.items[i].snippet.title);
+            var p = $("<p>");
+            p.text(data.items[i].snippet.title);
+            $("#songListTwo").append(p);
+        }
+    });
+}
+
+playlistOne();
+playlistTwo();
 
 //on click event run the function to fill in the enemy info then once the info is filled run a compare
 $("#generate").on("click", function () {
