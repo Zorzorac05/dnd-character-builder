@@ -279,8 +279,10 @@ function compare() {
     }
     if (numofTrue >= (stackUp.length + 1) / 2) {
         $("#results").text("You win!");
+        $("#emoji").text("🎊🎉");
     } else {
         $("#results").text("You lose!");
+        $("#emoji").text("😱☠️");
     }
 
 }
@@ -404,5 +406,5 @@ modalExit.on('click', function () {
 
 modalToggle.on('click', function () {
     modal.removeClass('hidden');
-    modal.removeClass('hidden');
+    modalOverlay.removeClass('hidden');
 });

@@ -61,25 +61,28 @@
               Character Stats
             </h1>
             <div
-              class="flex flex-row justify-around items-center object-right-center mt-2 p-2 bg-white rounded-md"
+              class="flex flex-row justify-around items-center object-right-center mt-1 p-2 bg-white rounded-md"
             >
               <!-- <img src="./assets/fighter.png" alt="Character Image" class="mr-4 p-4 w-20 h-20 object-cover"> -->
               <div id="char-img-anchor"></div>
               <div class="flex flex-col justify-center gap-5 p-5">
-                <h3 id="class" class="text-center text-4xl p-3 bg-gray-100 rounded-md border-b-4"></h3>
+                <h3
+                  id="class"
+                  class="text-center text-4xl p-3 bg-gray-100 rounded-md border-b-4"
+                ></h3>
                 <div class="flex flex-row justify-center gap-8">
                   <p id="level" class="text-xl text-center"></p>
                   <p id="hp" class="text-xl text-center"></p>
                   <p id="ac" class="text-xl text-center"></p>
                 </div>
-                  <div class="flex flex-row justify-center gap-8">
-                    <p id="str" class="text-lg text-center"></p>
-                    <p id="dex" class="text-lg text-center"></p>
-                    <p id="con" class="text-lg text-center"></p>
-                    <p id="int" class="text-lg text-center"></p>
-                    <p id="wis" class="text-lg text-center"></p>
-                    <p id="cha" class="text-lg text-center"></p>
-                  </div>
+                <div class="flex flex-row justify-center gap-8">
+                  <p id="str" class="text-lg text-center"></p>
+                  <p id="dex" class="text-lg text-center"></p>
+                  <p id="con" class="text-lg text-center"></p>
+                  <p id="int" class="text-lg text-center"></p>
+                  <p id="wis" class="text-lg text-center"></p>
+                  <p id="cha" class="text-lg text-center"></p>
+                </div>
               </div>
             </div>
           </div>
@@ -107,7 +110,10 @@
                 >
                   <div id="enemy-img-anchor"></div>
                   <div class="flex flex-col justify-center gap-5 p-5">
-                    <h3 id="enemy" class="text-center text-4xl p-3 bg-gray-100 rounded-md border-b-4"></h3>
+                    <h3
+                      id="enemy"
+                      class="text-center text-4xl p-3 bg-gray-100 rounded-md border-b-4"
+                    ></h3>
                     <div class="flex flex-row justify-center gap-8">
                       <p id="cr" class="text-xl text-center"></p>
                       <p id="ehp" class="text-xl text-center"></p>
@@ -129,7 +135,7 @@
         </div>
 
         <div
-          class="flex flex-col items-center w-[500px] h-4/5 bg-gray-700 rounded-xl border p-2 mb-6 ml-4 mt-4"
+          class="flex flex-col items-center w-[500px] h-1/2 bg-gray-700 rounded-xl border p-2 mb-6 ml-4 mt-4"
         >
           <h1
             class="font-bold w-full text-white text-3xl rounded-md p-2 text-center bg-red-700"
@@ -137,10 +143,11 @@
             Results
           </h1>
           <div
-            class="flex flex-row justify-around object-right-center mt-2 bg-white rounded-md p-2 h-full w-full"
+            class="flex flex-col justify-center gap-5 items-center object-right-center mt-1 bg-white rounded-md p-2 h-full w-full"
           >
-          <p id="results"></p>
-        </div>
+            <p id="emoji" class="text-7xl"></p>
+            <p id="results" class="text-7xl"></p>
+          </div>
         </div>
       </section>
     </main>
